@@ -1,5 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    <p>What's in your mind? want to <b>Tweet</b></p>
+    <textarea
+      type="text"
+      id=""
+      cols="30"
+      rows="5"
+      placeholder="character limit of 200"
+      v-model="contentTweet"
+    ></textarea>
+    <br />
+    <button class="tw-button" @click="createTweet">Post Tweet</button>
+  </div>
 </template>
 
 <script>

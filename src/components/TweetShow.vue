@@ -1,33 +1,17 @@
 <template>
   <div>
-    <button class="tw-button" @click="showTweet">Show the tweets</button>
+    <button class="tw-button" @click="showTweet">Show Tweets</button>
     <div v-for="tweet in tweets" :key="tweet.tweetId">
       <p>These you your Tweets: {{ tweet.username }}</p>
       <p>Tweet Message: {{ tweet.content }}</p>
-      <tweet-edit :tweetId="tweet.tweetId" />
-      <tweet-delete :tweetId="tweet.tweetId" />
-      <tweet-comment :tweetId="tweet.tweetId" />
-      <like-tweet :tweetId="tweet.tweetId" />
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import cookies from "vue-cookies";
-import TweetEdit from "../components/TweetEdit.vue";
-import TweetDelete from "../components/TweetDelete.vue";
-import TweetComment from "../components/CommentCreate.vue";
-import LikeTweet from "../components/TweetLike.vue";
-
 export default {
   name: "showtweets-page",
-  components: {
-    TweetEdit,
-    TweetDelete,
-    TweetComment,
-    LikeTweet
-  },
 
   data() {
     return {
@@ -48,10 +32,10 @@ export default {
           headers: {
             "Content-Type": "application/json",
             "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
-          },
-          params: {
-            userId: cookies.get("userId")
           }
+          //   params: {
+          //     userId: cookies.get("userId")
+          //   }
           // take this params off for all the users, and put these when we have specific user in the logged in method
         })
         .then(response => {

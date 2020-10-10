@@ -1,19 +1,29 @@
 <template>
   <div>
     <h1>This is the home page..</h1>
-    <h1>
-      Ask Alex. should all the tweets from all the users appear here? and hint
-      of how? and the discover other users to follow
-    </h1>
-    <router-link to="/login">Existing Users,Login here..</router-link>
+    <br />
+    <p>Want to see what others are <b> Tweeting </b> about?</p>
+    <show-tweet />
+    <p>---------------------------------------------------------</p>
+    <create-tweet />
 
-    <h3></h3>
+    <br /><br /><br />
+    <router-link to="/login">Existing Users,Login here..</router-link>
+    <br /><br /><br />
     <router-link to="/signup"> New Users,Sign up here..</router-link>
   </div>
 </template>
 
 <script>
-export default {};
+import CreateTweet from "../components/TweetCreate.vue";
+import ShowTweet from "../components/TweetShow.vue";
+export default {
+  name: "home",
+  components: {
+    CreateTweet,
+    ShowTweet
+  }
+};
 </script>
 
 <style scoped></style>
