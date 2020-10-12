@@ -14,6 +14,8 @@
       <p>{{ comment.username }}</p>
       <p>{{ comment.content }}</p>
       <p>{{ comment.createdAt }}</p>
+      <comment-delete :commentId="comment.commentId" />
+      <update-comment :commentId="comment.commentId" />
     </div>
   </div>
 </template>
@@ -21,9 +23,16 @@
 <script>
 import axios from "axios";
 import cookies from "vue-cookies";
+import CommentDelete from "../components/CommentDelete.vue";
+import UpdateComment from "../components/CommentEdit.vue";
 
 export default {
   name: "comment-page",
+
+  components: {
+    CommentDelete,
+    UpdateComment
+  },
   data() {
     return {
       comments: [],
@@ -61,7 +70,7 @@ export default {
     showComment: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/tweets",
+          url: "https://tweeterest.ml/api/comments",
           method: "GET",
           headers: {
             "Content-Type": "application/json",

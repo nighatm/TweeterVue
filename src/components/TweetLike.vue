@@ -4,15 +4,13 @@
       class="expression-image"
       @click="likeTweet"
       v-if="isLiked == false"
-      src="https://media5.newsnationtv.com/images/2015/11/04/196231201-twitterheart.jpg"
-      alt="Like Image"
+      src="https://cdn0.iconfinder.com/data/icons/twitter-ui-flat/48/Twitter_UI-24-512.png"
     />
     <img
       class="expression-image"
       @click="unlikeTweet"
       v-else-if="isLiked == true"
-      src="https://hamlab.dev/content/images/size/w2000/2020/07/twitter-unlike-all-bg.png"
-      alt="Unlike Image"
+      src="https://cdn4.iconfinder.com/data/icons/glyph-ui-icons-part-1/22/dislike-512.png"
     />
   </div>
 </template>
@@ -26,7 +24,6 @@ export default {
 
   data() {
     return {
-      likesNumber: Number,
       isLiked: false
     };
   },
@@ -51,10 +48,34 @@ export default {
         })
         .then(response => {
           console.log(response);
+          this.isLiked = true;
         })
         .catch(error => {
           console.log(error);
         });
+    },
+    unlikeTweet: function() {
+      (this.isLiked = false),
+        axios
+          .request({
+            url: "https://tweeterest.ml/api/tweet-likes",
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            },
+            data: {
+              loginToken: cookies.get("session"),
+              tweetId: this.tweetId
+            }
+          })
+          .then(response => {
+            console.log(response);
+            this.isLiked = false;
+          })
+          .catch(error => {
+            console.log(error);
+          });
     }
   }
 };
@@ -62,6 +83,6 @@ export default {
 
 <style scoped>
 .expression-image {
-  width: 80px;
+  width: 50px;
 }
 </style>

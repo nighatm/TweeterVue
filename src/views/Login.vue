@@ -1,8 +1,8 @@
 <template>
   <div id="login">
-    <h1>Welcome to Tweeter Clone!</h1>
+    <h1 class="header-text">Welcome to Tweeter Clone!</h1>
     <br />
-    <h2>Login</h2>
+    <h2 class="header-text">Login</h2>
     <div id="login-form">
       <p>Email</p>
       <input
@@ -24,6 +24,8 @@
       <br />
 
       <h3>{{ loginStatus }}</h3>
+      <router-link to="/"> Home </router-link>
+
       <router-link to="/signup" id="signup-link">
         New User? Sign up here</router-link
       >
@@ -66,7 +68,6 @@ export default {
           this.$router.push("/profile");
         })
         .catch(error => {
-          //show user login failure
           console.log(error);
           this.status = "Login Error!";
         });
@@ -111,5 +112,12 @@ export default {
   text-decoration: none;
   transition: 0.25s;
   background-color: #1c5d99;
+}
+.header-text {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  margin-top: 5vh;
+  color: #1c5d99;
 }
 </style>

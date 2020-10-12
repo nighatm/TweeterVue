@@ -1,38 +1,41 @@
 <template>
   <div>
-    <button class="tw-button" @click="logOut">Logout</button>
+    <button class="tw-button" @click="viewFollowers">View Followers</button>
+    <div v-for="follower in followers" :key="follower.userId">
+      {{ follower.username }}
+    </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
 import cookies from "vue-cookies";
+import axios from "axios";
+
 export default {
-  name: "logout-user",
+  name: "followers-page",
   data() {
     return {
-      loginToken: cookies.get("session")
+      followers: [],
+      userId: cookies.get("user")
     };
   },
   methods: {
-    logOut: function() {
+    viewFollowers: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/login",
-          method: "DELETE",
+          url: "https://tweeterest.ml/api/followers",
+          method: "GET",
           headers: {
             "Content-Type": "application/json",
             "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
           },
-          data: {
-            loginToken: this.loginToken
+          params: {
+            userId: this.userId
           }
         })
         .then(response => {
           console.log(response);
-          cookies.remove("session");
-          cookies.remove("user");
-          this.$router.push("/");
+          this.followers = response.data;
         })
         .catch(error => {
           console.log(error);

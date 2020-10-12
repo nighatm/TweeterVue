@@ -2,8 +2,8 @@
   <div>
     <button class="tw-button" @click="showTweet">Show Tweets</button>
     <div v-for="tweet in tweets" :key="tweet.tweetId">
-      <p>These you your Tweets: {{ tweet.username }}</p>
-      <p>Tweet Message: {{ tweet.content }}</p>
+      <p><b>Tweets From:</b> {{ tweet.username }}</p>
+      <p><b>Message:</b> {{ tweet.content }}</p>
     </div>
   </div>
 </template>
@@ -50,4 +50,20 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.tw-button {
+  min-width: 150px;
+  color: white;
+  background-color: #1da1f2;
+  font-weight: bold;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 25px;
+  outline: 0;
+}
+.tw-button:hover {
+  text-decoration: none;
+  transition: 0.25s;
+  background-color: #1c5d99;
+}
+</style>

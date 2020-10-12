@@ -1,7 +1,9 @@
 <template>
   <div id="signup-content">
-    <h1 id="sign-head">Sign up for a Tweeter account!</h1>
+    <h1 class="header-text" id="sign-head">Sign up for a Tweeter account!</h1>
     <router-link to="/login">Already a User.. Login Here!</router-link>
+    <br />
+    <router-link to="/"> Home</router-link>
 
     <signup-form />
   </div>
@@ -24,5 +26,12 @@ export default {
 }
 #twitter-img {
   width: 100px;
+}
+.header-text {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  margin-top: 5vh;
+  color: #1c5d99;
 }
 </style>

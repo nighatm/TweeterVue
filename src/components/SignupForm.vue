@@ -8,6 +8,7 @@
       class="text-format"
       v-model="email"
     />
+    <br />
     <p>User Name</p>
     <input
       type="text"
@@ -15,6 +16,7 @@
       id="username-input"
       v-model="username"
     />
+    <br />
     <p>Password</p>
     <input
       type="password"
@@ -22,6 +24,7 @@
       id="password-input"
       v-model="password"
     />
+    <br />
     <p>Bio</p>
     <textarea
       cols="30"
@@ -30,6 +33,7 @@
       id="bio-input"
       v-model="bio"
     ></textarea>
+    <br />
     <p>Birthday</p>
     <input
       type="text"
@@ -91,6 +95,11 @@ export default {
 </script>
 
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Slab", serif;
+}
 #signupform-content {
   display: grid;
   justify-items: center;
@@ -108,5 +117,10 @@ export default {
   border: none;
   border-radius: 25px;
   outline: 0;
+}
+.tw-button:hover {
+  text-decoration: none;
+  transition: 0.25s;
+  background-color: #1c5d99;
 }
 </style>
