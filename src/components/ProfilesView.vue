@@ -1,24 +1,32 @@
 <template>
   <div>
-    <h3 class="header-text">Want to discover other users?</h3>
-    <h3 class="header-text">Want to discover what are they tweeting about?</h3>
-    <router-link to="/profile"> Profile </router-link>
-    <div id="discover-container">
-      <button class="tw-button" @click="viewProfiles">Discover others</button>
-      <tweet-show />
+    <div v-if="loginToken != undefined">
+      <h3 class="header-text">Want to discover other users?</h3>
+      <h3 class="header-text">
+        Want to discover what are they tweeting about?
+      </h3>
+      <router-link to="/profile"> Profile </router-link>
+      <div id="discover-container">
+        <button class="tw-button" @click="viewProfiles">Discover others</button>
+        <tweet-show />
+      </div>
+      <div id="discover-content" v-for="user in users" :key="user.userId">
+        <h4>{{ user.username }}</h4>
+        <p>{{ user.email }}</p>
+        <p>{{ user.birthdate }}</p>
+        <p>{{ user.bio }}</p>
+        <p>---------------------------</p>
+      </div>
     </div>
-    <div id="discover-content" v-for="user in users" :key="user.userId">
-      <h4>{{ user.username }}</h4>
-      <p>{{ user.email }}</p>
-      <p>{{ user.birthdate }}</p>
-      <p>{{ user.bio }}</p>
-      <p>---------------------------</p>
+    <div v-else>
+      <h2>Please login in to continue...</h2>
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import cookies from "vue-cookies";
 import TweetShow from "../components/TweetShow.vue";
 
 export default {
@@ -29,7 +37,8 @@ export default {
   },
   data() {
     return {
-      users: []
+      users: [],
+      loginToken: cookies.get("session")
     };
   },
   methods: {
