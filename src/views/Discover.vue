@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <div class="cernter-alignment">
     <div v-if="loginToken != undefined">
-      <img
-        id="logo-image"
-        src="https://www.pinclipart.com/picdir/middle/306-3067911_discover-clipart.png"
-        alt="discover image"
-      />
+      <header-page />
+      <br />
       <profiles-view />
+      <br />
+      <footer-page />
     </div>
     <div v-else>
       <h2>Please login in to continue...</h2>
@@ -15,12 +14,16 @@
 </template>
 
 <script>
-import ProfilesView from "../components/ProfilesView.vue";
 import cookies from "vue-cookies";
+import HeaderPage from "../components/Header.vue";
+import FooterPage from "../components/Footer.vue";
+import ProfilesView from "../components/ProfilesView.vue";
 export default {
   name: "discover-page",
   components: {
-    ProfilesView
+    ProfilesView,
+    HeaderPage,
+    FooterPage
   },
   data() {
     return {
@@ -30,11 +33,4 @@ export default {
 };
 </script>
 
-<style scoped>
-#logo-image {
-  display: block;
-  position: absolute;
-  top: 2vh;
-  width: 80px;
-}
-</style>
+<style scoped></style>

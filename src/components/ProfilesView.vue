@@ -3,9 +3,9 @@
     <div v-if="loginToken != undefined">
       <h3 class="header-text">Want to discover other users?</h3>
       <h3 class="header-text">
-        Want to discover what are they tweeting about?
+        Want to discover what are they tweeting about?<br /><br /><br />
       </h3>
-      <router-link to="/profile"> Profile </router-link>
+
       <div id="discover-container">
         <button class="tw-button" @click="viewProfiles">Discover others</button>
         <tweet-show />

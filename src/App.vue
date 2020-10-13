@@ -46,5 +46,16 @@ export default {
   display: grid;
   align-items: center;
   justify-items: center;
+  width: 100%;
+  margin-left: 2vh;
+}
+@media only screen and (min-width: 1000px) {
+  .cernter-alignment {
+    display: grid;
+    align-items: left;
+    justify-items: left;
+    width: 80%;
+    margin-left: 35vh;
+  }
 }
 </style>

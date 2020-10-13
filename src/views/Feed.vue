@@ -1,13 +1,8 @@
 <template>
   <div class="cernter-alignment">
-    <img
-      id="logo-image"
-      src="https://icons.iconarchive.com/icons/fasticon/connecting/512/feed-icon.png"
-      alt="Feed image"
-    />
     <div v-if="loginToken != undefined">
+      <header-page />
       <h2 class="header-text">Want to see what others are Tweeting about?</h2>
-      <router-link to="/profile"> Back to Profile <br /></router-link>
       <br />
       <show-tweet />
       <p>---------------------------------------------------------</p>
@@ -15,6 +10,7 @@
       <br />
       <h3 id="view-text">View Followers:</h3>
       <view-followers />
+      <footer-page />
     </div>
     <div v-else>
       <p>Please login in to continue...</p>
@@ -27,13 +23,17 @@ import cookies from "vue-cookies";
 import ViewFollowers from "../components/Followers.vue";
 import CreateTweet from "../components/TweetCreate.vue";
 import ShowTweet from "../components/TweetShow.vue";
+import HeaderPage from "../components/Header.vue";
+import FooterPage from "../components/Footer.vue";
 
 export default {
   name: "discover-page",
   components: {
     ViewFollowers,
     CreateTweet,
-    ShowTweet
+    ShowTweet,
+    HeaderPage,
+    FooterPage
   },
   data() {
     return {
@@ -44,12 +44,6 @@ export default {
 </script>
 
 <style scoped>
-#logo-image {
-  display: block;
-  position: absolute;
-  top: 2vh;
-  width: 80px;
-}
 .header-text {
   display: grid;
   align-items: center;

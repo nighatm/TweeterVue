@@ -8,7 +8,6 @@
         <p>* {{ user.birthdate }}</p>
         <p>* {{ user.bio }}</p>
         <p>---------------------------</p>
-        <br />
       </div>
     </div>
     <p v-else>

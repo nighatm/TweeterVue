@@ -8,7 +8,7 @@
       class="text-format"
       v-model="email"
     />
-    <br />
+    <br /><br />
     <p>User Name</p>
     <input
       type="text"
@@ -16,7 +16,7 @@
       id="username-input"
       v-model="username"
     />
-    <br />
+    <br /><br />
     <p>Password</p>
     <input
       type="password"
@@ -24,7 +24,7 @@
       id="password-input"
       v-model="password"
     />
-    <br />
+    <br /><br />
     <p>Bio</p>
     <textarea
       cols="30"
@@ -33,7 +33,7 @@
       id="bio-input"
       v-model="bio"
     ></textarea>
-    <br />
+    <br /><br />
     <p>Birthday</p>
     <input
       type="text"
@@ -52,6 +52,7 @@ import cookies from "vue-cookies";
 
 export default {
   name: "signup-form",
+  components: {},
   data() {
     return {
       email: " ",
@@ -105,8 +106,8 @@ export default {
   justify-items: center;
   align-items: center;
   width: 100%;
-  min-height: 50vh;
-  background-color: #f5f8fa;
+  /* min-height: 50vh; */
+  size: 2.5em;
 }
 .tw-button {
   min-width: 150px;
