@@ -9,6 +9,8 @@
       <div id="discover-container">
         <button class="tw-button" @click="viewProfiles">Discover others</button>
         <tweet-show />
+        <followers />
+        <following />
       </div>
       <div id="discover-content" v-for="user in users" :key="user.userId">
         <h4>{{ user.username }}</h4>
@@ -28,12 +30,16 @@
 import axios from "axios";
 import cookies from "vue-cookies";
 import TweetShow from "../components/TweetShow.vue";
+import Followers from "../components/Followers.vue";
+import Following from "../components/Following.vue";
 
 export default {
   name: "profileview-page",
 
   components: {
-    TweetShow
+    TweetShow,
+    Followers,
+    Following
   },
   data() {
     return {
@@ -69,7 +75,7 @@ export default {
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .header-text {
   display: grid;

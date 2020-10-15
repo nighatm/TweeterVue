@@ -14,7 +14,7 @@
       />
       <img
         class="logo-image"
-        src="https://lh3.googleusercontent.com/proxy/cVTrkm0OIKS2XnO9163d8_qphIpkgNqz0XdQnSyR9K2Ej4mYhbIma0-H3KTQKpZY-7ZNtiuwOfHk7uxqIV3P_Drtg4eGeSlOr0t1rvvUnPDmJNUC9-f5xBuJZbV9rkDJFnDCOmiJ5jXbLTqSOROPt4o"
+        src="https://live.staticflickr.com/4028/4355483779_04740ee904_z.jpg"
         alt="tweets birds"
       />
     </div>
@@ -85,7 +85,7 @@ export default {
 }
 @media only screen and (min-width: 1000px) {
   .logo-image {
-    width: 250px;
+    width: 350px;
   }
   #titles {
     display: grid;

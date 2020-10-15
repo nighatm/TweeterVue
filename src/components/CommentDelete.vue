@@ -41,6 +41,8 @@ export default {
         })
         .then(response => {
           console.log(response);
+          alert("Are sure about Delete operation?");
+          window.confirm();
         })
         .catch(error => {
           console.log(error);

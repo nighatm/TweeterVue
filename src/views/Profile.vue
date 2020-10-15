@@ -4,15 +4,17 @@
       <header-page />
       <h2 class="header-text">Explore Tweets, Update Profile</h2>
       <br />
-      <router-link to="/tweet">Go to Tweets Page <br /></router-link>
-      <br />
+      <router-link to="/tweet">Go to Tweets Page </router-link> | --------------
+      |
 
+      <router-link to="/logout">Logout <br /></router-link>
+      <br />
       <!-- <followers v-if="follow == true"/> 
       <view-following v-else-if="false"/>
        -->
 
-      <followers />
-      <following />
+      <!-- <followers />
+      <following /> -->
       <profile-edit />
       <profile-delete />
       <logout-user />
@@ -29,8 +31,8 @@ import cookies from "vue-cookies";
 import ProfileEdit from "../components/ProfileEdit.vue";
 import ProfileDelete from "../components/ProfileDelete.vue";
 import LogoutUser from "../components/Logout.vue";
-import Followers from "../components/Followers.vue";
-import Following from "../components/Following.vue";
+// import Followers from "../components/Followers.vue";
+// import Following from "../components/Following.vue";
 import HeaderPage from "../components/Header.vue";
 import FooterPage from "../components/Footer.vue";
 
@@ -41,8 +43,8 @@ export default {
     ProfileEdit,
     ProfileDelete,
     LogoutUser,
-    Followers,
-    Following,
+    // Followers,
+    // Following,
     HeaderPage,
     FooterPage
   },

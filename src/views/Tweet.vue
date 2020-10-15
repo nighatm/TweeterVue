@@ -1,20 +1,24 @@
 <template>
-  <div>
+  <div class="cernter-alignment">
     <div v-if="loginToken != undefined">
+      <header-page />
+      <create-tweet /><br />
       <div><follow-unfollow /></div>
+      <br />
       <button class="tw-button" @click="showTweet">Show the tweets</button>
       <div v-for="tweet in tweets" :key="tweet.tweetId">
         <p><b>Tweet From:</b> {{ tweet.username }}</p>
         <p><b>Tweet Message:</b> {{ tweet.content }}</p>
+        <like-tweet :tweetId="tweet.tweetId" />
         <p>
           ---------------------------------------------------------------------------------------------
         </p>
-        <create-tweet />
         <tweet-edit :tweetId="tweet.tweetId" />
         <tweet-delete :tweetId="tweet.tweetId" />
         <tweet-comment :tweetId="tweet.tweetId" />
-        <like-tweet :tweetId="tweet.tweetId" />
+        <comment-like />
       </div>
+      <footer-page />
     </div>
     <div v-else>
       <p>Please login in to continue...</p>
@@ -29,8 +33,11 @@ import TweetEdit from "../components/TweetEdit.vue";
 import CreateTweet from "../components/TweetCreate.vue";
 import TweetDelete from "../components/TweetDelete.vue";
 import TweetComment from "../components/CommentCreate.vue";
+import CommentLike from "../components/CommentLikes.vue";
 import FollowUnfollow from "../components/FollowUnfollow.vue";
 import LikeTweet from "../components/TweetLike.vue";
+import HeaderPage from "../components/Header.vue";
+import FooterPage from "../components/Footer.vue";
 
 export default {
   name: "showtweets-page",
@@ -40,7 +47,10 @@ export default {
     TweetComment,
     LikeTweet,
     CreateTweet,
-    FollowUnfollow
+    FollowUnfollow,
+    HeaderPage,
+    FooterPage,
+    CommentLike
   },
 
   data() {
@@ -71,6 +81,7 @@ export default {
         .then(response => {
           console.log(response);
           this.tweets = response.data;
+          this.tweets.reverse();
         })
         .catch(error => {
           console.log(error);

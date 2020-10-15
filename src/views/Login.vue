@@ -42,13 +42,16 @@ import HeaderPage from "../components/Header.vue";
 import FooterPage from "../components/Footer.vue";
 
 export default {
+  name: "login-page",
+  components: {
+    HeaderPage,
+    FooterPage
+  },
   data() {
     return {
       email: "",
       password: "",
-      loginStatus: "",
-      HeaderPage,
-      FooterPage
+      loginStatus: ""
     };
   },
   methods: {

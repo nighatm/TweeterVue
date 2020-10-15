@@ -22,7 +22,7 @@
 import cookies from "vue-cookies";
 
 export default {
-  name: "header-menu",
+  name: "header-page",
   data() {
     return {
       loginToken: cookies.get("session")

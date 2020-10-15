@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4 id="text-color"><u>You are following</u></h4>
+    <button class="tw-button" @click="viewFollowwing">Following</button>
     <div v-if="users.length > 0">
       <div v-for="user in users" :key="user.userId">
         <p>* {{ user.email }}</p>
@@ -10,10 +10,6 @@
         <p>---------------------------</p>
       </div>
     </div>
-    <p v-else>
-      Oh.. There's no one.. <br />
-      Want to explore
-    </p>
   </div>
 </template>
 
@@ -52,15 +48,30 @@ export default {
           console.log(error);
         });
     }
-  },
-  mounted: function() {
-    this.viewFollowwing();
   }
+  // mounted: function() {
+  //   this.viewFollowwing();
+  // }
 };
 </script>
 
 <style scoped>
 #text-color {
   color: #1c5d99;
+}
+.tw-button {
+  min-width: 150px;
+  color: white;
+  background-color: #1da1f2;
+  font-weight: bold;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 25px;
+  outline: 0;
+}
+.tw-button:hover {
+  text-decoration: none;
+  transition: 0.25s;
+  background-color: #1c5d99;
 }
 </style>

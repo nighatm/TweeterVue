@@ -65,6 +65,8 @@ export default {
           this.updateStatus = "Success";
           this.$router.push("/signup");
           cookies.remove("session", response.data.loginToken);
+          alert("Are sure about Delete operation?");
+          window.confirm();
         })
         .catch(error => {
           console.log(error);

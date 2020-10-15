@@ -33,10 +33,6 @@ export default {
             "Content-Type": "application/json",
             "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
           }
-          //   params: {
-          //     userId: cookies.get("userId")
-          //   }
-          // take this params off for all the users, and put these when we have specific user in the logged in method
         })
         .then(response => {
           console.log(response);
