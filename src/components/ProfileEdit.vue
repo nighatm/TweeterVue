@@ -53,24 +53,23 @@ import cookies from "vue-cookies";
 export default {
   data() {
     return {
-      email: " ",
+      email: "",
       username: "",
       password: "",
       bio: "",
       birthdate: "",
       updateStatus: "",
-      loginToken: cookies.get("session")
+      loginToken: cookies.get("loginToken")
     };
   },
   methods: {
     updateUser: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/users",
-          method: "patch",
+          url: "https://tweetapi.ml/api/users",
+          method: "PATCH",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           data: {
             email: this.email,
@@ -84,7 +83,7 @@ export default {
         .then(response => {
           console.log(response);
           this.updateStatus = "Success";
-          this.$router.push("/login");
+          // this.$router.push("/login");
         })
         .catch(error => {
           console.log(error);

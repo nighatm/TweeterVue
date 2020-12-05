@@ -1,6 +1,7 @@
 <template>
   <div>
-    <button class="tw-button" @click="logOut">Logout</button>
+    <button class="tw-button" @click="logOut">Return to Home</button>
+    <h1>you have successfully logged out</h1>
   </div>
 </template>
 
@@ -11,18 +12,17 @@ export default {
   name: "logout-user",
   data() {
     return {
-      loginToken: cookies.get("session")
+      loginToken: cookies.get("loginToken")
     };
   },
   methods: {
     logOut: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/login",
+          url: "https://tweetapi.ml/api/login",
           method: "DELETE",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           data: {
             loginToken: this.loginToken
@@ -30,7 +30,7 @@ export default {
         })
         .then(response => {
           console.log(response);
-          cookies.remove("session");
+          cookies.remove("loginToken");
           cookies.remove("user");
           this.$router.push("/");
         })

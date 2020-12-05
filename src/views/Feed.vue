@@ -37,7 +37,7 @@ export default {
   },
   data() {
     return {
-      loginToken: cookies.get("session")
+      loginToken: cookies.get("loginToken")
     };
   }
 };

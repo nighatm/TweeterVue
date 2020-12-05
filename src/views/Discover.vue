@@ -5,8 +5,6 @@
       <br />
       <profiles-view />
       <br />
-      <!-- <followers /> -->
-      <logout-page />
       <footer-page />
     </div>
     <div v-else>
@@ -20,22 +18,17 @@ import cookies from "vue-cookies";
 import HeaderPage from "../components/Header.vue";
 import FooterPage from "../components/Footer.vue";
 import ProfilesView from "../components/ProfilesView.vue";
-import LogoutPage from "../components/Logout.vue";
-// import Followers from "../components/Followers.vue";
 
 export default {
   name: "discover-page",
   components: {
     ProfilesView,
     HeaderPage,
-    FooterPage,
-    LogoutPage
-    // Followers,
-    // Following
+    FooterPage
   },
   data() {
     return {
-      loginToken: cookies.get("session")
+      loginToken: cookies.get("loginToken")
     };
   }
 };

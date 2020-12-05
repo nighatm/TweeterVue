@@ -37,14 +37,13 @@ export default {
     likeComment: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/comment-likes",
+          url: "https://tweetapi.ml/api/comment-likes",
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           data: {
-            loginToken: cookies.get("session"),
+            loginToken: cookies.get("loginTokin"),
             commentId: this.commentId
           }
         })
@@ -60,14 +59,13 @@ export default {
       (this.isLiked = false),
         axios
           .request({
-            url: "https://tweeterest.ml/api/comment-likes",
+            url: "https://tweetapi.ml/api/comment-likes",
             method: "DELETE",
             headers: {
-              "Content-Type": "application/json",
-              "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+              "Content-Type": "application/json"
             },
             data: {
-              loginToken: cookies.get("session"),
+              loginToken: cookies.get("loginToken"),
               commentId: this.commentId
             }
           })
@@ -82,11 +80,10 @@ export default {
     countLikes: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/comment-likes",
+          url: "https://tweetapi.ml/api/comment-likes",
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           params: {
             commentId: this.commentId
@@ -96,7 +93,7 @@ export default {
           console.log(response);
           this.countLikes = response.data;
 
-          let thisUser = cookies.get("userId");
+          let thisUser = cookies.get("user");
           for (let i = 0; i < this.countLikes.length; i++) {
             if (thisUser == this.countLikes[i].userId) {
               this.isLiked = true;

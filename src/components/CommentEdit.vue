@@ -16,8 +16,8 @@ export default {
   data() {
     return {
       comments: [],
-      commentTweet: " ",
-      loginToken: cookies.get("session")
+      commentTweet: "",
+      loginToken: cookies.get("loginToken")
     };
   },
 
@@ -29,14 +29,13 @@ export default {
     editComment: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/comments",
+          url: "https://tweetapi.ml/api/comments",
           method: "PATCH",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           data: {
-            loginToken: cookies.get("session"),
+            loginToken: cookies.get("loginToken"),
             commentId: this.commentId,
             content: this.commentTweet
           }

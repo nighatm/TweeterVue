@@ -36,7 +36,7 @@ export default {
       email: "",
       password: "",
       updateStatus: "",
-      loginToken: cookies.get("session")
+      loginToken: cookies.get("loginToken")
     };
   },
   methods: {
@@ -48,11 +48,10 @@ export default {
       this.updateStatus = "Loading";
       axios
         .request({
-          url: "https://tweeterest.ml/api/users",
+          url: "https://tweetapi.ml/api/users",
           method: "DELETE",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           data: {
             loginToken: this.loginToken,
@@ -64,7 +63,7 @@ export default {
           console.log(response);
           this.updateStatus = "Success";
           this.$router.push("/signup");
-          cookies.remove("session", response.data.loginToken);
+          cookies.remove("loginToken", response.data.loginToken);
           alert("Are sure about Delete operation?");
           window.confirm();
         })

@@ -24,7 +24,7 @@ export default {
 
   data() {
     return {
-      contentTweet: " "
+      contentTweet: ""
     };
   },
 
@@ -32,15 +32,15 @@ export default {
     createTweet: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/tweets",
+          url: "https://tweetapi.ml/api/tweets",
           method: "POST",
 
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           data: {
-            loginToken: cookies.get("session"),
+            // loginToken: cookies.get("session"),
+            loginToken: cookies.get("loginToken"),
             content: this.contentTweet
           }
         })

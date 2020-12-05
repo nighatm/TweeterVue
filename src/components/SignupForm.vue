@@ -55,7 +55,7 @@ export default {
   components: {},
   data() {
     return {
-      email: " ",
+      email: "",
       username: "",
       password: "",
       bio: "",
@@ -66,11 +66,10 @@ export default {
     signupUser: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/users",
-          method: "post",
+          url: "https://tweetapi.ml/api/users",
+          method: "POST",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           data: {
             email: this.email,
@@ -83,7 +82,7 @@ export default {
         .then(response => {
           // console.log(response);
           //write logic to ensure token was sent (e.g if)
-          cookies.set("session", response.data.loginToken);
+          cookies.set("loginToken", response.data.loginToken);
           this.$router.push("/login");
         })
         .catch(error => {

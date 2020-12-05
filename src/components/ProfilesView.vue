@@ -44,18 +44,17 @@ export default {
   data() {
     return {
       users: [],
-      loginToken: cookies.get("session")
+      loginToken: cookies.get("loginToken")
     };
   },
   methods: {
     viewProfiles: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/users",
+          url: "https://tweetapi.ml/api/users",
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           }
         })
         .then(response => {

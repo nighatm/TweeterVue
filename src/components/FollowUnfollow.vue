@@ -24,7 +24,7 @@ export default {
     return {
       usersFollowing: [],
       isFollowing: false,
-      loginToken: cookies.get("session"),
+      loginToken: cookies.get("loginToken"),
       userId: cookies.get("user")
     };
   },
@@ -33,13 +33,12 @@ export default {
       axios
         .request({
           method: "POST",
-          url: "https://tweeterest.ml/api/follows",
+          url: "https://tweetapi.ml/api/follows",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           data: {
-            loginToken: cookies.get("session"),
+            loginToken: cookies.get("loginToken"),
             followId: this.userId
           }
         })
@@ -55,13 +54,12 @@ export default {
       axios
         .request({
           method: "DELETE",
-          url: "https://tweeterest.ml/api/follows",
+          url: "https://tweetapi.ml/api/follows",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           data: {
-            loginToken: cookies.get("session"),
+            loginToken: cookies.get("loginToken"),
             followId: this.userId
           }
         })
@@ -77,10 +75,9 @@ export default {
       axios
         .request({
           method: "GET",
-          url: "https://tweeterest.ml/api/followers",
+          url: "https://tweetapi.ml/api/followers",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           params: {
             userId: this.userId

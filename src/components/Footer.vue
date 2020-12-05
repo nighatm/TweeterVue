@@ -1,7 +1,7 @@
 <template>
   <div id="footer">
     <h3>Tweeter Clone a course project in Vue</h3>
-    <h4><i>copyrights @ nighat</i></h4>
+    <h4><i>tweeter website by nighat</i></h4>
   </div>
 </template>
 

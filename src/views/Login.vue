@@ -59,11 +59,11 @@ export default {
       this.loginStatus = "Loading..";
       axios
         .request({
-          url: "https://tweeterest.ml/api/login",
-          method: "post",
+          url: "https://tweetapi.ml/api/login",
+          method: "POST",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
+            // "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
           },
           data: {
             email: this.email,
@@ -73,7 +73,7 @@ export default {
         .then(response => {
           console.log(response);
           this.loginStatus = "Success";
-          cookies.set("session", response.data.loginToken);
+          cookies.set("loginToken", response.data.loginToken);
           cookies.set("user", response.data.userId);
           this.$router.push("/profile");
         })
@@ -93,20 +93,12 @@ export default {
   font-family: "Roboto Slab", serif;
 }
 
-/* #login {
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  width: 100%;
-  min-height: 70vh;
-} */
 #login-form {
   display: grid;
   align-items: center;
   justify-items: center;
   width: 100%;
   min-height: 50vh;
-  /* background-color: #f5f8fa; */
 }
 .tw-button {
   min-width: 150px;

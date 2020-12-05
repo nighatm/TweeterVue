@@ -15,8 +15,7 @@ export default {
   data() {
     return {
       comments: [],
-      commentTweet: " "
-      // commentId: Number,
+      commentTweet: ""
     };
   },
   props: {
@@ -27,15 +26,14 @@ export default {
     deleteComment: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/comments",
+          url: "https://tweetapi.ml/api/comments",
           method: "DELETE",
 
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           data: {
-            loginToken: cookies.get("session"),
+            loginToken: cookies.get("loginToken"),
             commentId: this.commentId
           }
         })

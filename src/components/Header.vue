@@ -25,7 +25,7 @@ export default {
   name: "header-page",
   data() {
     return {
-      loginToken: cookies.get("session")
+      loginToken: cookies.get("loginToken")
     };
   }
 };

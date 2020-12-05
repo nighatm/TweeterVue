@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       comments: [],
-      commentTweet: " "
+      commentTweet: ""
     };
   },
   props: {
@@ -46,22 +46,21 @@ export default {
     commentTweets: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/comments",
+          url: "https://tweetapi.ml/api/comments",
           method: "POST",
 
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           data: {
-            loginToken: cookies.get("session"),
+            loginToken: cookies.get("loginToken"),
             tweetId: this.tweetId,
             content: this.commentTweet
           }
         })
         .then(response => {
           console.log(response);
-          this.commentTweet = " ";
+          this.commentTweet = "";
         })
         .catch(error => {
           console.log(error);
@@ -70,11 +69,11 @@ export default {
     showComment: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/comments",
+          url: "https://tweetapi.ml/api/comments",
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
+            // "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
           },
           params: {
             tweetId: this.tweetId

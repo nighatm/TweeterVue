@@ -27,11 +27,10 @@ export default {
     showTweet: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/tweets",
+          url: "https://tweetapi.ml/api/tweets",
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           }
         })
         .then(response => {

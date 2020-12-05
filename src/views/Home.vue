@@ -13,14 +13,14 @@
         alt="tweet bird image"
       />
       <img
-        class="logo-image"
-        src="https://live.staticflickr.com/4028/4355483779_04740ee904_z.jpg"
+        id="logo-image2"
+        src="https://www.adweek.com/wp-content/uploads/2017/11/twitter-280-for-all-PAGE-2017.png"
         alt="tweets birds"
       />
     </div>
     <div id="home-container">
       <router-link to="/login">Login here..</router-link>
-      <router-link to="/signup"> New Users,Sign up here..</router-link>
+      <router-link to="/signup"> New User,.........Sign up here..</router-link>
     </div>
     <div>
       <footer-page />
@@ -86,6 +86,10 @@ export default {
 @media only screen and (min-width: 1000px) {
   .logo-image {
     width: 350px;
+  }
+  #logo-image2 {
+    width: 450px;
+    margin-left: 7vh;
   }
   #titles {
     display: grid;

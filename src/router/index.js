@@ -7,6 +7,7 @@ import ProfilePage from "../views/Profile.vue";
 import DiscoverPage from "../views/Discover.vue";
 import FeedPage from "../views/Feed.vue";
 import TweetPage from "../views/Tweet.vue";
+import Logout from "../components/Logout.vue";
 
 Vue.use(VueRouter);
 
@@ -45,6 +46,11 @@ const routes = [
     path: "/tweet",
     name: "Tweet",
     component: TweetPage
+  },
+  {
+    path: "/logout",
+    name: "logout",
+    component: Logout
   }
 ];
 

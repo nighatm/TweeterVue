@@ -5,7 +5,6 @@
     <br />
     <router-link to="/login">Already a User.. Login Here!</router-link>
     <br /><br /><br />
-    <!-- <router-link to="/"> Home</router-link> -->
 
     <signup-form />
     <footer-page />

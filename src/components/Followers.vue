@@ -2,7 +2,9 @@
   <div>
     <button class="tw-button" @click="viewFollowers">View Followers</button>
     <div v-for="follower in followers" :key="follower.userId">
-      {{ follower.username }}
+      <p>{{ follower.bio }}</p>
+      <p>*{{ follower.email }}</p>
+      <p>---------------------------</p>
     </div>
   </div>
 </template>
@@ -16,18 +18,18 @@ export default {
   data() {
     return {
       followers: [],
-      userId: cookies.get("user")
+      userId: cookies.get("user"),
+      loginToken: cookies.get("loginToken")
     };
   },
   methods: {
     viewFollowers: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/followers",
+          url: "https://tweetapi.ml/api/followers",
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           params: {
             userId: this.userId

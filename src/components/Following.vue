@@ -23,18 +23,17 @@ export default {
     return {
       users: [],
       userId: cookies.get("user"),
-      loginToken: cookies.get("session")
+      loginToken: cookies.get("loginToken")
     };
   },
   methods: {
     viewFollowwing: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/follows",
+          url: "https://tweetapi.ml/api/follows",
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           params: {
             userId: this.userId
@@ -49,9 +48,6 @@ export default {
         });
     }
   }
-  // mounted: function() {
-  //   this.viewFollowwing();
-  // }
 };
 </script>
 

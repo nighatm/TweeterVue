@@ -58,7 +58,7 @@ export default {
       tweets: [],
       username: "",
       content: "",
-      loginToken: cookies.get("session")
+      loginToken: cookies.get("loginToken")
     };
   },
   props: {
@@ -68,14 +68,13 @@ export default {
     showTweet: function() {
       axios
         .request({
-          url: "https://tweeterest.ml/api/tweets",
+          url: "https://tweetapi.ml/api/tweets",
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": "0a7lJfhSqh40fBqUWmIO71IRKww5z9bzzvLNSvLZH5FB9"
+            "Content-Type": "application/json"
           },
           params: {
-            userId: cookies.get("userId")
+            userId: cookies.get("user")
           }
         })
         .then(response => {

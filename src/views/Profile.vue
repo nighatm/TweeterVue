@@ -9,12 +9,7 @@
 
       <router-link to="/logout">Logout <br /></router-link>
       <br />
-      <!-- <followers v-if="follow == true"/> 
-      <view-following v-else-if="false"/>
-       -->
 
-      <!-- <followers />
-      <following /> -->
       <profile-edit />
       <profile-delete />
       <logout-user />
@@ -22,6 +17,7 @@
     </div>
     <div v-else>
       <p>Please login in to continue...</p>
+      <router-link to="/"> Home <br /> </router-link>
     </div>
   </div>
 </template>
@@ -31,8 +27,7 @@ import cookies from "vue-cookies";
 import ProfileEdit from "../components/ProfileEdit.vue";
 import ProfileDelete from "../components/ProfileDelete.vue";
 import LogoutUser from "../components/Logout.vue";
-// import Followers from "../components/Followers.vue";
-// import Following from "../components/Following.vue";
+
 import HeaderPage from "../components/Header.vue";
 import FooterPage from "../components/Footer.vue";
 
@@ -43,14 +38,12 @@ export default {
     ProfileEdit,
     ProfileDelete,
     LogoutUser,
-    // Followers,
-    // Following,
     HeaderPage,
     FooterPage
   },
   data() {
     return {
-      loginToken: cookies.get("session"),
+      loginToken: cookies.get("loginToken"),
       follow: true
     };
   }
